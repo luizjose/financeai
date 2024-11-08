@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  Transaction,
-  TransactionCategory,
-  TransactionType,
-} from "@prisma/client";
+import { Transaction } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
 import TransactionTypeBadge from "../_components/type-badge";
 import { Button } from "@/app/_components/ui/button";
