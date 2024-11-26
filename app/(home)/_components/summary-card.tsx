@@ -1,5 +1,6 @@
 import AddTransactionButton from "@/app/_components/add-transaction-button";
 import { Card, CardContent, CardHeader } from "@/app/_components/ui/card";
+import { canUserAddTransaction } from "@/app/_data/can-user-add-transaction";
 import { PiggyBankIcon } from "lucide-react";
 import { ReactNode } from "react";
 
@@ -8,13 +9,15 @@ interface SummaryCardProps {
   amount: number;
   icon: ReactNode;
   size?: "small" | "large";
+  userCanAddTransaction?: boolean;
 }
 
-const SummaryCard = ({
+const SummaryCard = async ({
   title,
   amount,
   icon,
   size = "small",
+  userCanAddTransaction,
 }: SummaryCardProps) => {
   return (
     <Card className={`${size === "large" ? "bg-white bg-opacity-5" : ""}`}>
@@ -35,7 +38,9 @@ const SummaryCard = ({
             currency: "BRL",
           }).format(amount)}
         </p>
-        {size === "large" && <AddTransactionButton />}
+        {size === "large" && (
+          <AddTransactionButton userCanAddTransaction={userCanAddTransaction} />
+        )}
       </CardContent>
     </Card>
   );
