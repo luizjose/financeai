@@ -1,9 +1,6 @@
-import Image from "next/image";
-import { Button } from "../_components/ui/button";
-import { UserButton } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import { auth, clerkClient } from "@clerk/nextjs/server";
-import { dark } from "@clerk/themes";
+
 import NavBar from "../_components/navbar";
 import SummaryCards from "./_components/summary-cards";
 import TimeSelect from "./_components/time-select";

@@ -4,7 +4,6 @@ import { ScrollArea } from "@/app/_components/ui/scroll-area";
 import Link from "next/link";
 import { Transaction, TransactionType } from "@prisma/client";
 import Image from "next/image";
-import { format } from "path";
 import { formatCurrency } from "@/app/_utils/currency";
 import { TRANSACTION_PAYMENT_METHOD_ICONS } from "@/app/_constants/transactions";
 
@@ -38,7 +37,10 @@ const LastTransactions = ({ lastTransactions }: LastTransactionsProps) => {
       </CardHeader>
       <CardContent className="space-y-6">
         {lastTransactions.map((transaction) => (
-          <div className="flex items-center justify-between">
+          <div
+            key={transaction.id}
+            className="flex items-center justify-between"
+          >
             <div className="flex items-center gap-3">
               <div className="rounded-lg bg-white bg-opacity-[3%] p-3 text-white">
                 <Image

@@ -1,1 +1,2 @@
 tailwind.config.ts
+./app/_lib/prisma.ts
